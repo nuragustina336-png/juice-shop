@@ -34,7 +34,7 @@ jobs:
           args: --severity-threshold=high
 
       - name: Monitor project on Snyk
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+                  if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
